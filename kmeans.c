@@ -8,61 +8,8 @@
 #include <math.h>
 #include <stdlib.h>
 
-#define DIM 2
-#define N 1000
-#define K 5
 
-
-typedef struct{
-    float fv[DIM];
-    float dis;
-    int id;
-    int kId;
-}Point;
-
-float distance_euclidean(float p1[], float p2[], int length);
-void random_vector_float(float vector[], int length, float min, float max);
-void print_array(float * arr, int length);
-
-void kmeans(Point * centroids, Point * points);
-void compute_centroids(int assignments[], Point * centroids, Point * points);
-
-
-int main(int argc, char *argv[])
-{
-    srand(123);    
-    
-    Point centroids[K];
-    Point points[N];
-    
-    for(int i = 0; i<K; i++){
-        random_vector_float(centroids[i].fv,DIM,0,1);
-    }
-
-    for(int i = 0; i<N; i++){
-        random_vector_float(points[i].fv,DIM,0,1);
-    }
-    
-    
-    for(int i = 0; i<K; i++){
-        print_array(centroids[i].fv,DIM);
-    }
-    
-    printf("\n");
-    for(int i = 0; i < K; i++)
-    {
-        for(int j=0;j<DIM;j++)
-            printf("%.2f, ", centroids[i].fv[j]);
-        printf("\n");
-    }
-    
-    kmeans(centroids, points);
-    
-    // for(int i=0;i<N;i++)
-    //     printf("%d\n",points[i].kId);
-
-    return 0;
-}
+#include "kmeans.h"
 
 
 void kmeans(Point centroids[], Point points[]){
