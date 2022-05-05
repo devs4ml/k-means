@@ -10,9 +10,14 @@
 
 #include "kmeans.h"
 
-#define DIM 2
-#define N 1000
-#define K 5
+#undef  DIM
+#define  DIM 20
+
+#undef  N
+#define  N 10000
+
+#undef  K
+#define  K 10
 
 
 int main(int argc, char *argv[])
